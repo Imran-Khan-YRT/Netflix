@@ -53,7 +53,16 @@ Must add the database name (not available after the / )
 
 `npm install @next-auth/prisma-adapter`
 
-add id and secret for github in .env file
+add id and secret for github and google in .env file
 -> From github developer settings > OAuth Apps
+
+# For google login
+
+    1.From Google developer console > create project > go to the project
+    2. Seach APIs & Services > OAuth consent screen > Select external > Add info > continue
+    3. Go to credentials > create one using OAuth client ID
+
+    Note: In the credentials -  `Authorized redirect URIs` fiels type `http://localhost:3000/api/auth/callback/google` (Black box)
+    Store client ID and client secret in env file
 
 `Problem -4 account created in atlas but no new user`
