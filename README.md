@@ -48,3 +48,12 @@ Must add the database name (not available after the / )
 
 `npm install next-auth`
 `npm install bcrypt` & its type
+
+# for github and google login install
+
+`npm install @next-auth/prisma-adapter`
+
+add id and secret for github in .env file
+-> From github developer settings > OAuth Apps
+
+`Problem -4 account created in atlas but no new user`
