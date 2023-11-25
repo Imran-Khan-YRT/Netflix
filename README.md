@@ -43,3 +43,8 @@ at schema-engine/core/src/state.rs:436
 
 Fixed it by allowing access from any IP.
 Must add the database name (not available after the / )
+
+# install some more packages for credential authentication
+
+`npm install next-auth`
+`npm install bcrypt` & its type
