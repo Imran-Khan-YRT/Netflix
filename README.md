@@ -24,3 +24,22 @@ steps recommended post installing prisna:
 `npm install @prisma/client` - to interact with database
 
 # do a lot for mongodb (problem)
+
+# create collection from mongodb atlas, then
+
+`npx prisma db push`
+
+Found this error
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": MongoDB database "test" at "netflix.hgd1h7d.mongodb.net"
+Error: MongoDB error
+Kind: I/O error: received fatal alert: InternalError, labels: {"RetryableWriteError"}
+0: schema_core::commands::schema_push::Calculate `from`
+at schema-engine/core/src/commands/schema_push.rs:29
+1: schema_core::state::SchemaPush
+at schema-engine/core/src/state.rs:436
+
+Fixed it by allowing access from any IP.
+Must add the database name (not available after the / )
