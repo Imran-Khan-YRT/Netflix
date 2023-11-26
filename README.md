@@ -66,3 +66,9 @@ add id and secret for github and google in .env file
     Store client ID and client secret in env file
 
 `Problem -4 account created in atlas but no new user`
+
+# user current user
+
+`npm install swr`
+
+add fix on not seeing home page without user login
