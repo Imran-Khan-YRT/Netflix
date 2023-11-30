@@ -21,7 +21,7 @@ const Auth = () => {
       await signIn("credentials", {
         email,
         password,
-        callbackUrl: "/profiles",
+        callbackUrl: "/profiles"
       });
     } catch (error) {
       console.log(error);
@@ -33,7 +33,7 @@ const Auth = () => {
       await axios.post("/api/register", {
         email,
         name,
-        password,
+        password
       });
       login();
     } catch (error) {
@@ -51,22 +51,47 @@ const Auth = () => {
           <div className="bg-black bg-opacity-70 px-16 py-16 lg:w-2/5 w-full lg:max-w-md self-center rounded-md mt-2">
             <h2 className="text-white text-4xl mb-8 font-semibold">{variant === "login" ? "Sign In" : "Register"}</h2>
             <div className="flex flex-col gap-4">
-              {variant === "register" && <Input label="Username" onChange={(event: any) => setName(event.target.value)} id="name" value={name} />}
-              <Input label="Email" onChange={(event: any) => setEmail(event.target.value)} id="email" type="email" value={email} />
-              <Input label="Password" onChange={(event: any) => setPassword(event.target.value)} id="password" type="password" value={password} />
+              {variant === "register" && (
+                <Input label="Username" onChange={(event: any) => setName(event.target.value)} id="name" value={name} />
+              )}
+              <Input
+                label="Email"
+                onChange={(event: any) => setEmail(event.target.value)}
+                id="email"
+                type="email"
+                value={email}
+              />
+              <Input
+                label="Password"
+                onChange={(event: any) => setPassword(event.target.value)}
+                id="password"
+                type="password"
+                value={password}
+              />
             </div>
-            <button onClick={variant === "login" ? login : register} className="bg-red-600 text-white rounded-md w-full py-3 mt-10 hover:bg-red-700 transition">
+            <button
+              onClick={variant === "login" ? login : register}
+              className="bg-red-600 text-white rounded-md w-full py-3 mt-10 hover:bg-red-700 transition"
+            >
               {variant === "login" ? "Login" : "Sign up"}
             </button>
             <div className="flex flex-row items-center gap-4 mt-8 justify-center">
               <div
-                onClick={() => signIn("google", { callbackUrl: "/profiles" })}
+                onClick={() =>
+                  signIn("google", {
+                    callbackUrl: "/profiles"
+                  })
+                }
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
               >
                 <FcGoogle size={30} />
               </div>
               <div
-                onClick={() => signIn("github", { callbackUrl: "/profiles" })}
+                onClick={() =>
+                  signIn("github", {
+                    callbackUrl: "/profiles"
+                  })
+                }
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
               >
                 <FaGithub size={30} />

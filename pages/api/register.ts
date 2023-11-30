@@ -10,8 +10,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { email, name, password } = req.body;
     const existingUser = await prismadb.user.findUnique({
       where: {
-        email,
-      },
+        email
+      }
     });
     if (existingUser) {
       return res.status(422).json({ error: "Email taken" });
@@ -23,8 +23,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         name,
         hashedPassword,
         image: "",
-        emailVerified: new Date(),
-      },
+        emailVerified: new Date()
+      }
     });
     return res.status(200).json(user);
   } catch (error) {

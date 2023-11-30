@@ -10,9 +10,7 @@
 
 # install prisma (add prisma extension)
 
-(https://www.prisma.io/docs/getting-started)
-`npm install -D prisma`
-`npx prisma init`
+(https://www.prisma.io/docs/getting-started) `npm install -D prisma` `npx prisma init`
 
 steps recommended post installing prisna:
 
@@ -31,30 +29,19 @@ steps recommended post installing prisna:
 
 Found this error
 
-Environment variables loaded from .env
-Prisma schema loaded from prisma/schema.prisma
-Datasource "db": MongoDB database "test" at "netflix.hgd1h7d.mongodb.net"
-Error: MongoDB error
-Kind: I/O error: received fatal alert: InternalError, labels: {"RetryableWriteError"}
-0: schema_core::commands::schema_push::Calculate `from`
-at schema-engine/core/src/commands/schema_push.rs:29
-1: schema_core::state::SchemaPush
-at schema-engine/core/src/state.rs:436
+Environment variables loaded from .env Prisma schema loaded from prisma/schema.prisma Datasource "db": MongoDB database "test" at "netflix.hgd1h7d.mongodb.net" Error: MongoDB error Kind: I/O error: received fatal alert: InternalError, labels: {"RetryableWriteError"} 0: schema_core::commands::schema_push::Calculate `from` at schema-engine/core/src/commands/schema_push.rs:29 1: schema_core::state::SchemaPush at schema-engine/core/src/state.rs:436
 
-Fixed it by allowing access from any IP.
-Must add the database name (not available after the / )
+Fixed it by allowing access from any IP. Must add the database name (not available after the / )
 
 # install some more packages for credential authentication
 
-`npm install next-auth`
-`npm install bcrypt` & its type
+`npm install next-auth` `npm install bcrypt` & its type
 
 # for github and google login install
 
 `npm install @next-auth/prisma-adapter`
 
-add id and secret for github and google in .env file
--> From github developer settings > OAuth Apps
+add id and secret for github and google in .env file -> From github developer settings > OAuth Apps
 
 # For google login
 

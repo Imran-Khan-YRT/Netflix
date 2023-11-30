@@ -12,11 +12,11 @@ export default NextAuth({
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID || "",
-      clientSecret: process.env.GITHUB_SECRET || "",
+      clientSecret: process.env.GITHUB_SECRET || ""
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || ""
     }),
     Credentials({
       id: "credentials",
@@ -24,12 +24,12 @@ export default NextAuth({
       credentials: {
         email: {
           label: "Email",
-          type: "text",
+          type: "text"
         },
         password: {
           label: "Password",
-          type: "password",
-        },
+          type: "password"
+        }
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
@@ -37,8 +37,8 @@ export default NextAuth({
         }
         const user = await prismadb.user.findUnique({
           where: {
-            email: credentials.email,
-          },
+            email: credentials.email
+          }
         });
         if (!user || !user.hashedPassword) {
           throw new Error("Email does not exist");
@@ -50,19 +50,19 @@ export default NextAuth({
         }
 
         return user;
-      },
-    }),
+      }
+    })
   ],
   pages: {
-    signIn: "auth",
+    signIn: "auth"
   },
   debug: process.env.NODE_ENV === "development",
   adapter: PrismaAdapter(prismadb),
   session: {
-    strategy: "jwt",
+    strategy: "jwt"
   },
   jwt: {
-    secret: process.env.NEXTAUTH_JWT_SECRET,
+    secret: process.env.NEXTAUTH_JWT_SECRET
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET
 });

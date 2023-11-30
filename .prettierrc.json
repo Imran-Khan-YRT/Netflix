@@ -1,7 +1,8 @@
 {
   "trailingComma": "none",
-  "singleQuote": true,
+  "singleQuote": false,
   "proseWrap": "never",
-  "printWidth": 150,
-  "bracketSpacing": true
+  "printWidth": 120,
+  "bracketSpacing": true,
+  "endOfLine": "lf"
 }
